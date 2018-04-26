@@ -2,9 +2,7 @@ package api.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
-@ToString
 public enum Activity {
     WALKING (1),
     RUNNING (2),

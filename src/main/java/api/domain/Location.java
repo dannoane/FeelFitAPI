@@ -2,14 +2,14 @@ package api.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.hateoas.ResourceSupport;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@ToString
-public class Location extends ResourceSupport {
+@Document(collection = "locations")
+public class Location {
 
-    @Id private String id;
+    @Id private ObjectId id;
     @Getter @Setter private double longitude;
     @Getter @Setter private double latitude;
     @Getter @Setter private long time;

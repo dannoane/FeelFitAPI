@@ -2,13 +2,14 @@ package api.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@ToString
+@Document(collection = "users")
 public class Statistics {
 
-    @Id private String id;
+    @Id private ObjectId id;
 
     @Getter @Setter private long time;
     @Getter @Setter private long startTime;

@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
-
 @RepositoryRestController
 public class UserController {
 
@@ -36,7 +34,6 @@ public class UserController {
         user.setPassword(encodedPassword);
 
         User newUser = repository.save(user);
-        newUser.add(linkTo(methodOn(UserController.class).signUp(newUser)).withSelfRel());
 
         return new ResponseEntity<>(newUser, HttpStatus.OK);
     }

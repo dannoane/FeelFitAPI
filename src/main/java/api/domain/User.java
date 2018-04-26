@@ -2,16 +2,17 @@ package api.domain;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.hateoas.ResourceSupport;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@ToString
-public class User extends ResourceSupport {
+@Document(collection = "users")
+public class User {
 
-    @Id private String id;
-    @Getter @Setter private String username;
+    @Id private ObjectId id;
+    @Getter @Setter @Indexed(unique = true) private String username;
     @Getter @Setter private String password;
     @Getter @Setter private String name;
-    @Getter @Setter private String email;
+    @Getter @Setter @Indexed(unique = true) private String email;
 }
