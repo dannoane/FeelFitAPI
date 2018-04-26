@@ -64,18 +64,19 @@ Vagrant.configure("2") do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    apt-get -y update
-    apt-get -y dist-upgrade
+    sudo apt-get -y update
+    sudo apt-get -y dist-upgrade
 
-    sudo apt-get install language-pack-UTF-8
+    sudo apt-get install -y language-pack-UTF-8
     sudo locale-gen UTF-8
 
     sudo apt-get install -y mongodb-org
     sudo apt-get install -y mongodb-clients
     sudo apt-get install -y mongodb-server
 
-    sudo apt-get install openjdk-9-jre-headless
-    sudo apt-get install gradle
-    sudo apt-get install openjdk-9-jdk-headless
+    sudo apt-get install -y openjdk-8-jre-headless
+    sudo apt-get install -y openjdk-8-jdk-headless
+    sudo apt-get install -y gradle
+    sudo apt-get install -y make
   SHELL
 end
