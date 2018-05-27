@@ -3,7 +3,6 @@ package api.controller;
 import api.domain.User;
 import api.repository.UserRepository;
 import api.security.JWTSubject;
-import jdk.nashorn.internal.scripts.JD;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpEntity;
