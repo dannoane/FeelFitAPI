@@ -8,18 +8,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection = "workouts")
-public class Workout {
+@Document(collection = "routesegment")
+public class RouteSegment {
 
     @Id
     private ObjectId id;
 
     @Getter @Setter
-    private String username;
+    private Activity activity;
 
     @Getter @Setter
-    private List<RouteSegment> route;
-
-    @Getter @Setter
-    private Statistics statistics;
+    private List<Location> polyline;
 }

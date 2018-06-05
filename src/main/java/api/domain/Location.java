@@ -20,7 +20,4 @@ public class Location {
 
     @Getter @Setter
     private long time;
-
-    @Getter @Setter
-    private Activity activity;
 }

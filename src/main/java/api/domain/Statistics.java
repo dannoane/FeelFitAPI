@@ -22,16 +22,10 @@ public class Statistics {
     private long endTime;
 
     @Getter @Setter
-    private float altitude;
-
-    @Getter @Setter
     private float maxAltitude;
 
     @Getter @Setter
     private float minAltitude;
-
-    @Getter @Setter
-    private float speed;
 
     @Getter @Setter
     private float maxSpeed;
@@ -47,4 +41,7 @@ public class Statistics {
 
     @Getter @Setter
     private float avgPace;
+
+    @Getter @Setter
+    private float temperature;
 }
