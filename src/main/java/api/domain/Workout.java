@@ -22,4 +22,7 @@ public class Workout {
 
     @Getter @Setter
     private Statistics statistics;
+
+    @Getter @Setter
+    private boolean isPublic;
 }
