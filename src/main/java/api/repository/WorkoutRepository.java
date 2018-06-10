@@ -20,7 +20,7 @@ public interface WorkoutRepository extends MongoRepository<Workout, String> {
 
     @Query(value = "{ 'username': { $regex: '?0', $options: 'i' }, " +
             "'route.polyline.point': { $near: { $geometry: { type: 'Point', coordinates: [?1, ?2] }, $maxDistance: ?3 } }, " +
-            "'route.activity: ?4 }")
+            "'route.activity': ?4 }")
     List<Workout> findWorkouts(@Param("username") String username,
                                @Param("latitude") double latitude,
                                @Param("longitude") double longitude,
