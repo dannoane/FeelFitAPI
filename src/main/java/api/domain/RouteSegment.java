@@ -15,7 +15,7 @@ public class RouteSegment {
     private ObjectId id;
 
     @Getter @Setter
-    private Activity activity;
+    private int activity;
 
     @Getter @Setter
     private List<Location> polyline;

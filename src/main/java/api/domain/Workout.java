@@ -11,11 +11,14 @@ import java.util.List;
 @Document(collection = "workouts")
 public class Workout {
 
-    @Id
+    @Id @Getter
     private ObjectId id;
 
     @Getter @Setter
     private String username;
+
+    @Getter @Setter
+    private String name;
 
     @Getter @Setter
     private List<RouteSegment> route;

@@ -1,6 +1,5 @@
 package api.repository;
 
-import api.domain.Activity;
 import api.domain.Workout;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
@@ -25,5 +24,5 @@ public interface WorkoutRepository extends MongoRepository<Workout, String> {
                                @Param("latitude") double latitude,
                                @Param("longitude") double longitude,
                                @Param("radius") int radius,
-                               @Param("activity") Activity activity);
+                               @Param("activity") int activity);
 }

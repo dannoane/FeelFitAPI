@@ -1,6 +1,5 @@
 package api.controller;
 
-import api.domain.Activity;
 import api.domain.Workout;
 import api.repository.WorkoutRepository;
 import api.security.JWTSubject;
@@ -67,7 +66,7 @@ public class WorkoutController {
                                                                 @RequestParam double latitude,
                                                                 @RequestParam double longitude,
                                                                 @RequestParam(defaultValue = "10000") int radius,
-                                                                @RequestParam Activity activity) {
+                                                                @RequestParam int activity) {
 
         List<Workout> workouts = workoutRepository
                 .findWorkouts(username,
