@@ -11,7 +11,7 @@ import java.util.List;
 @Document(collection = "workouts")
 public class Workout {
 
-    @Id @Getter
+    @Id
     private ObjectId id;
 
     @Getter @Setter
