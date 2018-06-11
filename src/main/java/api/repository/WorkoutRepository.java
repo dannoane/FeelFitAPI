@@ -25,4 +25,9 @@ public interface WorkoutRepository extends MongoRepository<Workout, String> {
                                @Param("longitude") double longitude,
                                @Param("radius") int radius,
                                @Param("activity") int activity);
+
+    @Query(value = "{ 'username': ?0, 'statistics.startTime' : { $gte: ?1 }, 'statistics.endTime': { $lte: ?2 } }")
+    List<Workout> findUserWorkoutsByTime(@Param("username") String username,
+                                         @Param("startTime") long startTime,
+                                         @Param("endTime") long endTime);
 }
