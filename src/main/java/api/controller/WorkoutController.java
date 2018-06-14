@@ -1,12 +1,10 @@
 package api.controller;
 
-import api.domain.RouteSegment;
 import api.domain.UserWorkoutStatistics;
 import api.domain.Workout;
 import api.repository.WorkoutRepository;
 import api.security.JWTSubject;
 import api.util.ComputeStatistics;
-import com.github.davidmoten.grumpy.core.Position;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpEntity;
@@ -14,9 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RepositoryRestController
 public class WorkoutController {
