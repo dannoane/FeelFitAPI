@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RepositoryRestController
@@ -35,6 +36,7 @@ public class UserPositionController {
     public @ResponseBody HttpEntity<UserPosition> setUserPosition(@RequestBody UserPosition userPosition) {
 
         userPosition.setUsername(JWTSubject.getSubject());
+        userPosition.setCreatedAt(new Date());
         UserPosition savedUserPosition = userPositionRepository.save(userPosition);
 
         return new ResponseEntity<>(savedUserPosition, HttpStatus.OK);
