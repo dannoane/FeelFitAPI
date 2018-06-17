@@ -65,10 +65,14 @@ public class WorkoutController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/workouts/find")
     public @ResponseBody HttpEntity<List<Workout>> findWorkouts(@RequestParam(defaultValue = "") String username,
-                                                                @RequestParam double latitude,
-                                                                @RequestParam double longitude,
+                                                                @RequestParam(defaultValue = "0") double latitude,
+                                                                @RequestParam(defaultValue = "0") double longitude,
                                                                 @RequestParam(defaultValue = "10000") int radius,
-                                                                @RequestParam int activity) {
+                                                                @RequestParam(defaultValue = "3") int activity) {
+
+        if (latitude == 0 && longitude == 0) {
+            radius = 1000 * 6371;
+        }
 
         List<Workout> workouts = workoutRepository
                 .findWorkouts(username,
