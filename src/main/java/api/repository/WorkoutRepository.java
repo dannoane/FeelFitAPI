@@ -19,12 +19,13 @@ public interface WorkoutRepository extends MongoRepository<Workout, String> {
 
     @Query(value = "{ 'username': { $regex: '?0', $options: 'i' }, " +
             "'route.polyline.point': { $near: { $geometry: { type: 'Point', coordinates: [?1, ?2] }, $maxDistance: ?3 } }, " +
-            "'route.activity': ?4 }")
+            "'route.activity': ?4, $or: [{ 'isPublic': true }, { 'username': ?5 }] }")
     List<Workout> findWorkouts(@Param("username") String username,
                                @Param("latitude") double latitude,
                                @Param("longitude") double longitude,
                                @Param("radius") int radius,
-                               @Param("activity") int activity);
+                               @Param("activity") int activity,
+                               @Param("currentUser") String currentUser);
 
     @Query(value = "{ 'username': ?0, 'statistics.startTime' : { $gte: ?1 }, 'statistics.endTime': { $lte: ?2 } }")
     List<Workout> findUserWorkoutsByTime(@Param("username") String username,

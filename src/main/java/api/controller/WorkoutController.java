@@ -79,7 +79,8 @@ public class WorkoutController {
                         latitude,
                         longitude,
                         radius,
-                        activity);
+                        activity,
+                        JWTSubject.getSubject());
 
         if (workouts.size() == 0) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
