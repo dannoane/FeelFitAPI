@@ -25,6 +25,10 @@ public class ComputeStatistics {
 
             double distance = 0;
             for (RouteSegment rs: w.getRoute()) {
+                if (rs == null) {
+                    continue;
+                }
+
                 if (rs.getActivity() != activity) {
                     continue;
                 }
@@ -94,6 +98,10 @@ public class ComputeStatistics {
 
             long time = 0;
             for (RouteSegment rs: w.getRoute()) {
+                if (rs == null) {
+                    continue;
+                }
+
                 if (rs.getActivity() != activity) {
                     continue;
                 }
