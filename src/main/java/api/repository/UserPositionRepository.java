@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface UserPositionRepository extends MongoRepository<UserPosition, String> {
 
-    @Query(value = "{ 'location': { $near: { $geometry: { type: 'Point', coordinates: [?0, ?1] }, $maxDistance: 20000 } } }")
+    @Query(value = "{ 'location': { $near: { $geometry: { type: 'Point', coordinates: [?0, ?1] }, $maxDistance: 1000000 } } }")
     List<UserPosition> findUsersInArea(@Param("latitude") double latitude,
                                        @Param("longitude") double longitude);
 
