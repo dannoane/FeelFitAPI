@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RepositoryRestController
 public class WorkoutController {
@@ -56,6 +57,15 @@ public class WorkoutController {
         if (workout.getRoute() == null || workout.getStatistics() == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
+
+        workout.setRoute(
+                workout
+                        .getRoute()
+                        .stream()
+                        .filter(rs -> rs != null)
+                        .collect(Collectors.toList())
+        );
 
         workout.setUsername(JWTSubject.getSubject());
         Workout savedWorkout = workoutRepository.save(workout);
