@@ -23,7 +23,7 @@ public class UserPositionController {
         this.userPositionRepository = userPositionRepository;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/track")
+    @RequestMapping(method = RequestMethod.GET, value = "/userPositions")
     public @ResponseBody HttpEntity<List<UserPosition>> findUsersInArea(@RequestParam double latitude,
                                                                         @RequestParam double longitude) {
 
@@ -32,7 +32,7 @@ public class UserPositionController {
         return new ResponseEntity<>(userPositions, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/track")
+    @RequestMapping(method = RequestMethod.POST, value = "/userPositions")
     public @ResponseBody HttpEntity<UserPosition> setUserPosition(@RequestBody UserPosition userPosition) {
 
         userPosition.setUsername(JWTSubject.getSubject());
