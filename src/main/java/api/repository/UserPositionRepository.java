@@ -14,4 +14,7 @@ public interface UserPositionRepository extends MongoRepository<UserPosition, St
     @Query(value = "{ 'location': { $near: { $geometry: { type: 'Point', coordinates: [?0, ?1] }, $maxDistance: 20000 } } }")
     List<UserPosition> findUsersInArea(@Param("latitude") double latitude,
                                        @Param("longitude") double longitude);
+
+    @Query(value = "{ 'username': ?0 }")
+    UserPosition findByUsername(@Param("username") String username);
 }

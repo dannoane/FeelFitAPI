@@ -37,6 +37,12 @@ public class UserPositionController {
 
         userPosition.setUsername(JWTSubject.getSubject());
         userPosition.setCreatedAt(new Date());
+
+        UserPosition up = userPositionRepository.findByUsername(userPosition.getUsername());
+        if (up != null) {
+            userPositionRepository.delete(up);
+        }
+
         UserPosition savedUserPosition = userPositionRepository.save(userPosition);
 
         return new ResponseEntity<>(savedUserPosition, HttpStatus.OK);
