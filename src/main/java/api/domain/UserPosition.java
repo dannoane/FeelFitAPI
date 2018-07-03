@@ -3,6 +3,7 @@ package api.domain;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
 import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
@@ -17,10 +18,10 @@ public class UserPosition {
     @Id
     private ObjectId id;
 
-    @Getter @Setter @Indexed(dropDups = true)
+    @Getter @Setter @Indexed(unique = true, dropDups = true)
     private String username;
 
-    @Getter @Setter @Indexed(expireAfterSeconds = 60 * 10)
+    @Setter @Indexed(expireAfterSeconds = 60 * 10) @CreatedDate
     private Date createdAt;
 
     @Getter @Setter
